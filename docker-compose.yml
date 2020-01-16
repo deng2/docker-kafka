@@ -4,8 +4,8 @@ services:
     image: wurstmeister/zookeeper:latest
     ports:
       - 2181:2181
-    volumes:
-      - zookeeper_data:/opt/zookeeper-3.4.13/data
+  #    volumes:
+  #      - zookeeper_data:/opt/zookeeper-3.4.13/data
   kafka_0:
     image: wurstmeister/kafka:2.12-2.2.2
     ports:
@@ -15,10 +15,15 @@ services:
       - KAFKA_ADVERTISED_HOST_NAME=deng2
       - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
       - KAFKA_AUTO_CREATE_TOPICS_ENABLE=false
+      #set __consumer_offsets topic replication factor. the topic is used for group management
       - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=2
+      #create topic test with partitions 4 and replication factor 2
+      #- KAFKA_CREATE_TOPICS="test:4:2"
     volumes:
-      - kafka_data:/kafka
+      # - kafka_data:/kafka
       - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      - zookeeper
   kafka_1:
     image: wurstmeister/kafka:2.12-2.2.2
     ports:
@@ -28,12 +33,17 @@ services:
       - KAFKA_ADVERTISED_HOST_NAME=deng2
       - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
       - KAFKA_AUTO_CREATE_TOPICS_ENABLE=false
+      #set __consumer_offsets topic replication factor. the topic is used for group management
       - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=2
+      #create topic test with partitions 4 and replication factor 2
+      #- KAFKA_CREATE_TOPICS="test:4:2"
     volumes:
-      - kafka_data:/kafka
+      # - kafka_data:/kafka
       - /var/run/docker.sock:/var/run/docker.sock
-volumes:
-  zookeeper_data:
-    driver: local
-  kafka_data:
-    driver: local
+    depends_on:
+      - zookeeper
+#volumes:
+#  zookeeper_data:
+#    driver: local
+#  kafka_data:
+#    driver: local
