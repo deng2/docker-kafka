@@ -14,14 +14,13 @@ services:
       - KAFKA_BROKER_ID=0
       - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
       - KAFKA_ADVERTISED_HOST_NAME=deng2
-      #set __consumer_offsets topic replication factor. the topic is used for group management
       - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=2
       - KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR=3
       - KAFKA_TRANSACTION_STATE_LOG_MIN_ISR=2
       - KAFKA_DEFAULT_REPLICATION_FACTOR=2
       - KAFKA_MIN_INSYNC_REPLICAS=1
-      - KAFKA_DELETE_TOPIC_ENABLE=TRUE
-      #- KAFKA_AUTO_CREATE_TOPICS_ENABLE=false
+      # - KAFKA_DELETE_TOPIC_ENABLE=TRUE
+      - KAFKA_AUTO_CREATE_TOPICS_ENABLE=false
       #create topic test with partitions 4 and replication factor 2
       #- KAFKA_CREATE_TOPICS="test:4:2"
     volumes:
@@ -37,14 +36,13 @@ services:
       - KAFKA_BROKER_ID=1
       - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
       - KAFKA_ADVERTISED_HOST_NAME=deng2
-      #set __consumer_offsets topic replication factor. the topic is used for group management
       - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=2
       - KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR=3
       - KAFKA_TRANSACTION_STATE_LOG_MIN_ISR=2
       - KAFKA_DEFAULT_REPLICATION_FACTOR=2
       - KAFKA_MIN_INSYNC_REPLICAS=1
-      - KAFKA_DELETE_TOPIC_ENABLE=TRUE
-      #- KAFKA_AUTO_CREATE_TOPICS_ENABLE=false
+      # - KAFKA_DELETE_TOPIC_ENABLE=TRUE
+      - KAFKA_AUTO_CREATE_TOPICS_ENABLE=false
       #create topic test with partitions 4 and replication factor 2
       #- KAFKA_CREATE_TOPICS="test:4:2"
     volumes:
@@ -60,14 +58,13 @@ services:
       - KAFKA_BROKER_ID=2
       - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
       - KAFKA_ADVERTISED_HOST_NAME=deng2
-      #set __consumer_offsets topic replication factor. the topic is used for group management
       - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=2
       - KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR=3
       - KAFKA_TRANSACTION_STATE_LOG_MIN_ISR=2
       - KAFKA_DEFAULT_REPLICATION_FACTOR=2
       - KAFKA_MIN_INSYNC_REPLICAS=1
-      - KAFKA_DELETE_TOPIC_ENABLE=TRUE
-      #- KAFKA_AUTO_CREATE_TOPICS_ENABLE=false
+      # - KAFKA_DELETE_TOPIC_ENABLE=TRUE
+      - KAFKA_AUTO_CREATE_TOPICS_ENABLE=false
       #create topic test with partitions 4 and replication factor 2
       #- KAFKA_CREATE_TOPICS="test:4:2"
     volumes:
